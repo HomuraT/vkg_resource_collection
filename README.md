@@ -10,3 +10,14 @@ pip install -r requirement.txt
 ## [ontop-examples](https://github.com/ontop/ontop-examples/tree/master)
 
 ## [RODI](https://github.com/chrpin/rodi)
+
+## BSBM
+http://wbsg.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/V1/results/index.html
+
+## DBLP
+https://github.com/kite1988/dblp-parser/blob/master/ReadMe.md
+https://dataconverter.io/convert/xml-to-mysql
+https://github.com/calledit/xml2rDB
+
+## others
+https://github.com/ghxiao/city-bench/tree/master

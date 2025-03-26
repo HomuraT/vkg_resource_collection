@@ -7,6 +7,8 @@ Contents
 - `manual_counts.txt`: Mappings grouped per-pattern (manual analysis)
 - `manual-vs-adamap-heatmap.png`: Manual analysis vs adamap
 
+mysql data: https://github.com/ontop/npd-benchmark
+
 本体 (npd_ontology.owl)
 本体地址: http://sws.ifi.uio.no/vocab/npd-v2
 类（实体）数量: 342
