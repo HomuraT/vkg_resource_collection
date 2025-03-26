@@ -8,3 +8,5 @@ pip install -r requirement.txt
 
 # raw vkg resources
 ## [ontop-examples](https://github.com/ontop/ontop-examples/tree/master)
+
+## [RODI](https://github.com/chrpin/rodi)
