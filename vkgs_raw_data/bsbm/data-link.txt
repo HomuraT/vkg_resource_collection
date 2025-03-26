@@ -1,0 +1,14 @@
+Link to data:
+
+http://wifo5-03.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/
+
+
+本体 (bsbm.owl)
+本体地址: N1778c356d4e943b397ac58f970a9bd53
+类（实体）数量: 8
+对象属性数量: 10
+数据属性数量: 0
+个体（实例）数量: 0
+数据库 (bsbm-1_schema.sql)
+表的数量: 10
+总列数: 78

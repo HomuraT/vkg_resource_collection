@@ -1,0 +1,9 @@
+本体 (suedtirol.owl)
+本体地址: http://www.semanticweb.org/ding/ontologies/2017/10/untitled-ontology-2
+类（实体）数量: 37
+对象属性数量: 5
+数据属性数量: 15
+个体（实例）数量: 6
+数据库 (suedtirol-schema.sql)
+表的数量: 9
+总列数: 90
