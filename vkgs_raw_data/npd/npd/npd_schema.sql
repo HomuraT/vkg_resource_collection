@@ -1894,7 +1894,7 @@ DROP TABLE IF EXISTS `wellbore_oil_sample`;
 CREATE TABLE `wellbore_oil_sample` (
   `wlbName` varchar(60) NOT NULL COMMENT 'Wellbore name',
   `wlbOilSampleTestType` varchar(4) DEFAULT NULL COMMENT 'Test type',
-  `wlbOilSampleTestNumber` varchar(10) DEFAULT NULL COMMENT 'Bottle test number',
+  `wlbOilSampleTestNumber` varchar(10) DEFAULT NULL COMMENT 'Bottle scripts number',
   `wlbOilSampleTopDepth` decimal(13,6) NOT NULL COMMENT 'Top depth MD [m]',
   `wlbOilSampleBottomDepth` decimal(13,6) NOT NULL COMMENT 'Bottom depth MD [m]',
   `wlbOilSampleFluidType` varchar(20) DEFAULT NULL COMMENT 'Fluid type',
