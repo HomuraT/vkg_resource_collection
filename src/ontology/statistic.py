@@ -1,7 +1,11 @@
 import os
-from typing import List, Optional, Dict, Any
+import re
+import xml.etree.ElementTree as ET
+from typing import Dict, Any, Optional
+
 import rdflib
 from rdflib import Graph, URIRef
+from rdflib.namespace import RDF, RDFS, OWL
 
 
 def load_ontology(file_path: str) -> Optional[Graph]:
@@ -45,53 +49,61 @@ def load_ontology(file_path: str) -> Optional[Graph]:
         return None
 
 
+from typing import Dict, Any
+from rdflib import Graph, URIRef
+from rdflib.namespace import RDF, OWL
+
+
 def get_ontology_info(graph: Graph) -> Dict[str, Any]:
     """
-    Extract basic information from the loaded ontology.
+    Extract basic element counts from an ontology graph
 
     Args:
-        graph (rdflib.Graph): The loaded ontology graph
+        graph (rdflib.Graph): Loaded ontology graph
 
     Returns:
-        Dict[str, Any]: Dictionary containing information about the ontology
+        Dict[str, Any]: Dictionary with ontology information
     """
-    if not graph:
+    # Initialize basic information
+    if graph is None:
         return {}
 
-    # Get basic ontology information
-    info: Dict[str, Any] = {
+    info = {
         'triple_count': len(graph),
         'classes': [],
-        'properties': [],
+        'object_properties': [],
+        'data_properties': [],
         'individuals': []
     }
 
-    # RDF, RDFS, and OWL namespaces
-    RDF = rdflib.namespace.RDF
-    RDFS = rdflib.namespace.RDFS
-    OWL = rdflib.namespace.OWL
-
-    # Extract classes
+    # 1. Query all classes
     for subject in graph.subjects(RDF.type, OWL.Class):
         if isinstance(subject, URIRef):
-            label = None
-            for label_obj in graph.objects(subject, RDFS.label):
-                label = str(label_obj)
-                break
-            info['classes'].append({'uri': str(subject), 'label': label})
+            uri_str = str(subject)
+            if uri_str not in [c['uri'] for c in info['classes'] if 'uri' in c]:
+                info['classes'].append({'uri': uri_str})
 
-    # Extract properties
+    # 2. Query all object properties
     for subject in graph.subjects(RDF.type, OWL.ObjectProperty):
         if isinstance(subject, URIRef):
-            info['properties'].append(str(subject))
+            uri_str = str(subject)
+            if uri_str not in info['object_properties']:
+                info['object_properties'].append(uri_str)
 
+    # 3. Query all data properties
     for subject in graph.subjects(RDF.type, OWL.DatatypeProperty):
         if isinstance(subject, URIRef):
-            info['properties'].append(str(subject))
+            uri_str = str(subject)
+            if uri_str not in info['data_properties']:
+                info['data_properties'].append(uri_str)
 
-    # Extract individuals
+    # 4. Query all individuals
     for subject in graph.subjects(RDF.type, OWL.NamedIndividual):
         if isinstance(subject, URIRef):
-            info['individuals'].append(str(subject))
+            uri_str = str(subject)
+            if uri_str not in info['individuals']:
+                info['individuals'].append(uri_str)
 
     return info
+
+

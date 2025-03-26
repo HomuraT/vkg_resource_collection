@@ -1,5 +1,6 @@
+import csv
 import os
-from typing import List
+from typing import List, Dict, Any
 
 
 def find_owl_ttl_files(root_folder: str) -> List[str]:
@@ -27,22 +28,40 @@ def find_owl_ttl_files(root_folder: str) -> List[str]:
     return matched_files
 
 
-def main() -> None:
+
+def dict_list_to_csv(dict_list: List[Dict[str, Any]], output_file: str, delimiter: str = ',') -> None:
     """
-    Example usage of find_owl_ttl_files function.
+    Convert a list of dictionaries to a CSV file
+
+    Parameters:
+        dict_list: List of dictionaries, each dictionary represents a row of data
+        output_file: Path to the output CSV file
+        delimiter: CSV delimiter, default is comma
+
+    Returns:
+        None
     """
-    # Replace with the folder path you want to search
-    search_folder: str = '../../'
+    if not dict_list:
+        print("Dictionary list is empty, cannot generate CSV file")
+        return
 
-    # Get list of file paths
-    owl_ttl_files: List[str] = find_owl_ttl_files(search_folder)
+    # Get all keys from dictionaries as CSV column headers
+    fieldnames = set()
+    for d in dict_list:
+        fieldnames.update(d.keys())
 
-    # Print found file paths
-    print("Found .owl and .ttl files:")
-    for file_path in owl_ttl_files:
-        print(file_path)
+    # Convert to ordered list
+    fieldnames = list(fieldnames)
 
+    # Write to CSV file
+    with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=delimiter)
 
-if __name__ == '__main__':
-    main()
+        # Write column headers
+        writer.writeheader()
 
+        # Write data rows
+        for row_dict in dict_list:
+            writer.writerow(row_dict)
+
+    print(f"CSV file has been successfully generated: {output_file}")
