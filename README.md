@@ -36,3 +36,6 @@ https://github.com/calledit/xml2rDB
 
 ## others
 https://github.com/ghxiao/city-bench/tree/master
+
+
+⭐⭐⭐ https://github.com/ontop/ontop-patterns-tutorial/tree/main
