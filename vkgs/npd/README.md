@@ -1,5 +1,21 @@
 # NPD
 https://ontop-vkg.org/npd-benchmark/
+## Statistic
+### Ontology
+#Class: 342
+
+#Object Property: 142
+
+#Data Property: 238
+
+#Individual: 855
+
+### Database
+#Table: 70
+
+#Cloumn: 962
+
+#Row: 257271
 
 # Deployment Steps
 ## Install docker
@@ -88,8 +104,8 @@ Schema |                   Name                    | Type  |  Owner
  public | fclPoint                                  | table | postgres
 ```
 
-## Configure MySQL Connection
-Modify the configuration in `univ-bench-dl.properties`
+## Configure Database Connection
+Modify the configuration in `npd.properties`
 
 ## Deploy VKG
 **Ensure you have downloaded [ontop-protege-bundle](https://github.com/ontop/ontop/releases).**
@@ -101,7 +117,7 @@ You will see information below if successful:
 ![protege_with_ontop_tabs](../../resources/imgs/protege_with_ontop_tabs.png)
 
 Now start to deploy and check the VKG: 
-1. Open the ontology file `univ-bench-dl.owl` (protege → File → Open)
+1. Open the ontology file `npd.owl` (protege → File → Open)
 2. Select the Ontop Reasoner (protege → Reasoner → Ontop)
 3. Start the Ontop Reasoner (protege → Reasoner → Start reasoner)
 4. Wait till `Reasoner active` is shown in the Protege's bottom right corner

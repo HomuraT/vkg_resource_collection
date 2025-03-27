@@ -5,6 +5,21 @@
 
 The UOBM scenario used in the paper is provided in the [uobm](https://github.com/ontop/ontop-examples/tree/master/aaai-2016-ontoprox/uobm) directory.
 
+## Statistic
+#Class: 69
+
+#Object Property: 35
+
+#Data Property: 9
+
+#Individual: 58
+### Database
+#Table: 20
+
+#Column: 108
+
+#Row: 153823
+
 # Deployment Steps
 ## Install docker
 install docker
