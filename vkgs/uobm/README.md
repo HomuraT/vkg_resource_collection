@@ -86,3 +86,31 @@ You will see information below if successful:
 
 ## Configure MySQL Connection
 Modify the configuration in `univ-bench-dl.properties`
+
+## Deploy VKG
+**Ensure you have downloaded [ontop-protege-bundle](https://github.com/ontop/ontop/releases).**
+
+**Ensure you have opened ontop tabs (protege → Window → Tabs → Ontop SPARQL & Ontop Mappings)**
+
+You will see information below if successful:
+
+![protege_with_ontop_tabs](../../resources/imgs/protege_with_ontop_tabs.png)
+
+Now start to deploy and check the VKG: 
+1. Open the ontology file `univ-bench-dl.owl` (protege → File → Open)
+2. Select the Ontop Reasoner (protege → Reasoner → Ontop)
+3. Start the Ontop Reasoner (protege → Reasoner → Start reasoner)
+4. Wait till `Reasoner active` is shown in the Protege's bottom right corner
+
+![protege_with_ontop_tabs](../../resources/imgs/protege_reasoner_active.png)
+
+5. Execute a SPARQL sample to check if the VKG is working (in tab **Ontop SPARQL**):
+```text
+PREFIX : <http://uob.iodt.ibm.com/univ-bench-dl.owl#>
+SELECT DISTINCT ?X WHERE {
+	?X a :Person .
+}
+```
+
+**You will see information below if successful:**
+![protege_sparql_query](../../resources/imgs/protege_sparql_query.png)
