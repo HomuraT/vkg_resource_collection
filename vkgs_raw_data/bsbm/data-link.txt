@@ -1,6 +1,6 @@
 Link to data:
 
-http://wifo5-03.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/
+http://wbsg.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/V1/results/index.html
 
 
 本体 (bsbm.owl)
