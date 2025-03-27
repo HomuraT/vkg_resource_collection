@@ -113,4 +113,5 @@ SELECT DISTINCT ?X WHERE {
 ```
 
 **You will see information below if successful:**
+
 ![protege_sparql_query](../../resources/imgs/protege_sparql_query.png)
