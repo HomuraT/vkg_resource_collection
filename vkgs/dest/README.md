@@ -124,7 +124,7 @@ You will see information below if successful:
 ![protege_with_ontop_tabs](../../resources/imgs/protege_with_ontop_tabs.png)
 
 Now start to deploy and check the VKG: 
-1. Open the ontology file `dest.owl` (protege → File → Open)
+1. Open the ontology file `dest-solution.ttl` (protege → File → Open)
 2. Select the Ontop Reasoner (protege → Reasoner → Ontop)
 3. Start the Ontop Reasoner (protege → Reasoner → Start reasoner)
 4. Wait till `Reasoner active` is shown in the Protege's bottom right corner
