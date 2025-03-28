@@ -1,7 +1,7 @@
 from src.ontology.statistic import load_ontology, get_ontology_info
 from src.utils.os_utils import find_owl_ttl_files, dict_list_to_csv
 
-ontology_paths = find_owl_ttl_files('../vkgs_raw_data')
+ontology_paths = find_owl_ttl_files('../vkgs')
 
 o_infos = []
 for opath in ontology_paths:
