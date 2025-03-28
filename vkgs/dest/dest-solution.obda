@@ -109,7 +109,7 @@ source		SELECT * FROM source2.hotels
 			WHERE htype = 4
 
 mappingId	Source 2 lodging business - accommodation
-target		data:source2/accommodation/{id} a schema:Accommodation ; schema:name {english_title}@en , {italian_title}@it , {german_title}@de ; schema:description {german_description}@de , {italian_description}@it ; :numberOfUnits 1 ; schema:containedInPlace data:source2/hotels/{hotel} ; schema:occupancy data:source2/occupancy/accommodation/{id} . 
+target		data:source2/accommodation/{id} a schema:Accommodation ; schema:name {english_title}@en , {italian_title}@it , {german_title}@de ; schema:description {german_description}@de , {italian_description}@it ; :numberOfUnits "1"^^xsd:integer ; schema:containedInPlace data:source2/hotels/{hotel} ; schema:occupancy data:source2/occupancy/accommodation/{id} . 
 source		SELECT * FROM source2.accommodation
 
 mappingId	Source 2 - room occupancy
@@ -176,22 +176,23 @@ source		select m.id from source3.weather_measurement m, source3.measurement_type
 			WHERE m.name = t.name and t.unit = 'm/s'
 
 mappingId	Feature of Interest
-target		data:weather/featureOfInterest/{platform_id}/{name} a sosa:FeatureOfInterest .
+target		data:weather/featureOfInterest/{platform_id}/{name} a sosa:FeatureOfInterest . 
 source		select * from source3.weather_measurement
 
 mappingId	Feature of Interest -  observation
-target		data:weather/observation/{id} sosa:hasFeatureOfInterest data:weather/featureOfInterest/{platform_id}/{name} .
+target		data:weather/observation/{id} sosa:hasFeatureOfInterest data:weather/featureOfInterest/{platform_id}/{name} . 
 source		select * from source3.weather_measurement
 
 mappingId	Feature of Interest - geo
-target		data:weather/featureOfInterest/{platform_id}/{name} geo:defaultGeometry data:geo/weather/platform/{platform_id} .
+target		data:weather/featureOfInterest/{platform_id}/{name} geo:defaultGeometry data:geo/weather/platform/{platform_id} . 
 source		select * from source3.weather_measurement
 
 mappingId	Outdoor water
-target		data:weather/featureOfInterest/{platform_id}/{name} a :OutdoorWater .
+target		data:weather/featureOfInterest/{platform_id}/{name} a :OutdoorWater . 
 source		select * from source3.weather_measurement WHERE name IN ('water-temperature')
 
 mappingId	Outdoor air
-target		data:weather/featureOfInterest/{platform_id}/{name} a :OutdoorAir .
+target		data:weather/featureOfInterest/{platform_id}/{name} a :OutdoorAir . 
 source		select * from source3.weather_measurement WHERE name IN ('wind-direction', 'wind-speed', 'wind10m_direction', 'wind10m_speed')
 ]]
+

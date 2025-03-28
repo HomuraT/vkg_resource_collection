@@ -2,20 +2,20 @@
 https://github.com/ontopic-vkg/destination-tutorial/tree/master
 ## Statistic
 ### Ontology
-#Class: 342
+#Class: 7
 
-#Object Property: 142
+#Object Property: 4
 
-#Data Property: 238
+#Data Property: 8
 
-#Individual: 855
+#Individual: 0
 
 ### Database
-#Table: 70
+#Table: 8
 
-#Cloumn: 962
+#Cloumn: 80
 
-#Row: 257271
+#Row: 51117
 
 # Deployment Steps
 ## Install docker
@@ -38,13 +38,13 @@ Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ```
 ## Install postgresSQL
-install postgresSQL using docker
+install postgresSQL using docker with **PostGIS** 
 ```shell
-docker pull postgres
+docker pull postgis/postgis
 ```
 run postgres
 ```shell
-docker run --name my-postgres -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres
+docker run --name postgis -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgis/postgis
 ```
 - --name mysql-container: Names your container
 - -e POSTGRES_PASSWORD=your_password: Sets the root password
@@ -70,7 +70,7 @@ CREATE DATABASE dest;
 **Load data**
 
 ```shell
-psql -h 127.0.0.1 -p 5432 -U postgres -d dest -f new_dest.sql
+psql -h 127.0.0.1 -p 5432 -U postgres -d dest -f dest.sql
 ```
 **check**
 ```shell
@@ -84,28 +84,35 @@ enter q
 
 You will see information below if successful:
 ```text
-Schema |                   Name                    | Type  |  Owner   
---------+-------------------------------------------+-------+----------
- public | apaAreaGross                              | table | postgres
- public | apaAreaNet                                | table | postgres
- public | baaArea                                   | table | postgres
- public | bsns_arr_area                             | table | postgres
- public | bsns_arr_area_area_poly_hst               | table | postgres
- public | bsns_arr_area_licensee_hst                | table | postgres
- public | bsns_arr_area_operator                    | table | postgres
- public | bsns_arr_area_transfer_hst                | table | postgres
- public | company                                   | table | postgres
- public | company_reserves                          | table | postgres
- public | discovery                                 | table | postgres
- public | discovery_reserves                        | table | postgres
- public | dscArea                                   | table | postgres
- public | facility_fixed                            | table | postgres
- public | facility_moveable                         | table | postgres
- public | fclPoint                                  | table | postgres
+                   List of relations
+  Schema  |           Name           | Type  |  Owner   
+----------+--------------------------+-------+----------
+ public   | spatial_ref_sys          | table | postgres
+ tiger    | addr                     | table | postgres
+ tiger    | addrfeat                 | table | postgres
+ tiger    | bg                       | table | postgres
+ tiger    | county                   | table | postgres
+ tiger    | county_lookup            | table | postgres
+ tiger    | countysub_lookup         | table | postgres
+ tiger    | cousub                   | table | postgres
+ tiger    | direction_lookup         | table | postgres
+ tiger    | edges                    | table | postgres
+ tiger    | faces                    | table | postgres
+ tiger    | featnames                | table | postgres
+ tiger    | geocode_settings         | table | postgres
+ tiger    | geocode_settings_default | table | postgres
+ tiger    | loader_lookuptables      | table | postgres
+ tiger    | loader_platform          | table | postgres
+ tiger    | loader_variables         | table | postgres
+ tiger    | pagc_gaz                 | table | postgres
+ tiger    | pagc_lex                 | table | postgres
+ tiger    | pagc_rules               | table | postgres
+ tiger    | place                    | table | postgres
+ tiger    | place_lookup             | table | postgres
 ```
 
 ## Configure Database Connection
-Modify the configuration in `npd.properties`
+Modify the configuration in `dest.properties`
 
 ## Deploy VKG
 **Ensure you have downloaded [ontop-protege-bundle](https://github.com/ontop/ontop/releases).**
@@ -117,7 +124,7 @@ You will see information below if successful:
 ![protege_with_ontop_tabs](../../resources/imgs/protege_with_ontop_tabs.png)
 
 Now start to deploy and check the VKG: 
-1. Open the ontology file `npd.owl` (protege → File → Open)
+1. Open the ontology file `dest.owl` (protege → File → Open)
 2. Select the Ontop Reasoner (protege → Reasoner → Ontop)
 3. Start the Ontop Reasoner (protege → Reasoner → Start reasoner)
 4. Wait till `Reasoner active` is shown in the Protege's bottom right corner
@@ -126,9 +133,9 @@ Now start to deploy and check the VKG:
 
 5. Execute a SPARQL sample to check if the VKG is working (in tab **Ontop SPARQL**):
 ```text
-SELECT ?wellbore
+SELECT ?e
 WHERE {
-  ?wellbore a <http://www.w3.org/2004/02/skos/core#Concept>.
+  ?e a <http://destination.example.org/ontology/dest#OutdoorWater>.
 }
 ```
 
