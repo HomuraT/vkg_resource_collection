@@ -2,20 +2,20 @@
 https://github.com/ontop/ontop-patterns-tutorial/tree/main
 ## Statistic
 ### Ontology
-#Class: 342
+#Class: 32
 
-#Object Property: 142
+#Object Property: 23
 
-#Data Property: 238
+#Data Property: 6
 
-#Individual: 855
+#Individual: 10
 
 ### Database
-#Table: 70
+#Table: 6
 
-#Cloumn: 962
+#Cloumn: 29
 
-#Row: 257271
+#Row: 97474
 
 # Deployment Steps
 ## Install docker
@@ -108,7 +108,7 @@ You will see information below if successful:
 ![protege_with_ontop_tabs](../../resources/imgs/protege_with_ontop_tabs.png)
 
 Now start to deploy and check the VKG: 
-1. Open the ontology file `npd.owl` (protege → File → Open)
+1. Open the ontology file `bgee_v14_genex.ttl` (protege → File → Open)
 2. Select the Ontop Reasoner (protege → Reasoner → Ontop)
 3. Start the Ontop Reasoner (protege → Reasoner → Start reasoner)
 4. Wait till `Reasoner active` is shown in the Protege's bottom right corner
@@ -117,9 +117,16 @@ Now start to deploy and check the VKG:
 
 5. Execute a SPARQL sample to check if the VKG is working (in tab **Ontop SPARQL**):
 ```text
-SELECT ?wellbore
-WHERE {
-  ?wellbore a <http://www.w3.org/2004/02/skos/core#Concept>.
+PREFIX orth: <http://purl.org/net/orth#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?gene_name ?gene_description ?gene_page {
+   VALUES ?gene_name {"boss"}
+   ?gene a orth:Gene ; 
+      rdfs:seeAlso ?gene_page ;
+      dcterms:description ?gene_description ;  
+      rdfs:label ?gene_name .
 }
 ```
 
