@@ -38,7 +38,7 @@ Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ```
 ## Install postgresSQL
-install postgresSQL using docker with **PostGIS** 
+install postgresSQL with **PostGIS**  using docker 
 ```shell
 docker pull postgis/postgis
 ```
@@ -52,8 +52,8 @@ docker run --name postgis -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgis/post
 - -p 5432:5432: Maps the container's postgresSQL port to your host
 - postgres: Specifies the image to use
 
-## Load NPD dataset
-**Create NPD database**
+## Load dataset
+**Create database**
 1. Login into postgresSQL
 ```text
 psql -h 127.0.0.1 -p 5432 -U postgres 
@@ -112,7 +112,7 @@ You will see information below if successful:
 ```
 
 ## Configure Database Connection
-Modify the configuration in `dest.properties`
+Modify the configuration in `dest-solution.properties`
 
 ## Deploy VKG
 **Ensure you have downloaded [ontop-protege-bundle](https://github.com/ontop/ontop/releases).**
