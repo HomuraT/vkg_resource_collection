@@ -6,8 +6,12 @@ conda activate vkg_collection
 pip install -r requirement.txt
 ```
 
-# VKGs
+# VKG Resources
 see `vkg_resources.xlsx` and `./vkgs`
+
+# Introduction of VKGs
+![npd](./resources/imgs/npd.jpg)
+
 
 # raw vkg resources
 ## [ontop-examples](https://github.com/ontop/ontop-examples/tree/master)

@@ -47,7 +47,7 @@ docker pull mysql:latest
 ```
 run mysql
 ```shell
-docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d -p 3306:3306 mysql:latest
+docker run --name mysql-container -e MYSQL_ROOT_PASSWORD="tFG+}@9,9>58I£k£>|=" -d -p 3306:3306 mysql:latest
 ```
 - --name mysql-container: Names your container
 - -e MYSQL_ROOT_PASSWORD=your_password: Sets the root password

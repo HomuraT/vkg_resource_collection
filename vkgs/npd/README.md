@@ -44,7 +44,7 @@ docker pull postgres
 ```
 run postgres
 ```shell
-docker run --name my-postgres -e POSTGRES_PASSWORD=root -p 5432:5432 -d postgres
+docker run --name my-postgres -e POSTGRES_PASSWORD="tFG+}@9,9>58I£k£>|=" -p 5432:5432 -d postgres
 ```
 - --name mysql-container: Names your container
 - -e POSTGRES_PASSWORD=your_password: Sets the root password
