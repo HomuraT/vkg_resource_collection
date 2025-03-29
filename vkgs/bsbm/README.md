@@ -70,6 +70,7 @@ mysql -h 127.0.0.1 -P 3306 -u root -p < 07Vendor.sql
 mysql -h 127.0.0.1 -P 3306 -u root -p < 08Offer.sql
 mysql -h 127.0.0.1 -P 3306 -u root -p < 09Person.sql
 mysql -h 127.0.0.1 -P 3306 -u root -p < 10Review.sql
+mysql -h 127.0.0.1 -P 3306 -u root -p < 11ForeignKeys.sql
 ```
 check
 ```shell
