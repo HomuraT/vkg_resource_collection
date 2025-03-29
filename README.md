@@ -1,4 +1,8 @@
-# python enviroment
+# Introduction
+This repository aims to collect publicly available VKG resources.
+
+
+# python enviroment [optional]
 ## create conda enviroment
 ```shell
 conda create -n vkg_collection python=3.12
