@@ -65,7 +65,7 @@ id   mysql:latest   "docker-entrypoint.s…"   12 seconds ago   Up 11 seconds   
 ```
 Get into mysql (the password is setted by `MYSQL_ROOT_PASSWORD=your_password`)
 ```shell
-docker run -it --network host mysql:latest mysql -h127.0.0.1 -uroot -p
+docker run -it --network host mysql:latest mysql -h 127.0.0.1 -uroot -p
 ```
 ## Load UOBM dataset
 ```shell

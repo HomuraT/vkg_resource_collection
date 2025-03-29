@@ -44,7 +44,7 @@ docker pull postgis/postgis
 ```
 run postgres
 ```shell
-docker run --name postgis -e POSTGRES_PASSWORD="tFG+}@9,9>58I£k£>|=" -p 5432:5432 -d postgis/postgis
+docker run --name postgis -e POSTGRES_PASSWORD="tFG+}@9,9>58I£k£>|=" -p 5434:5432 -d postgis/postgis
 ```
 - --name mysql-container: Names your container
 - -e POSTGRES_PASSWORD=your_password: Sets the root password
@@ -56,7 +56,7 @@ docker run --name postgis -e POSTGRES_PASSWORD="tFG+}@9,9>58I£k£>|=" -p 5432:5
 **Create database**
 1. Login into postgresSQL
 ```text
-psql -h 127.0.0.1 -p 5432 -U postgres 
+psql -h 127.0.0.1 -p 5434 -U postgres 
 ```
 2. Create database
 ```text
@@ -70,12 +70,12 @@ CREATE DATABASE dest;
 **Load data**
 
 ```shell
-psql -h 127.0.0.1 -p 5432 -U postgres -d dest -f dest.sql
+psql -h 127.0.0.1 -p 5434 -U postgres -d dest -f dest.sql
 ```
 **check**
 ```shell
 # 1. get into 
-psql -h 127.0.0.1 -p 5432 -U postgres -d npd
+psql -h 127.0.0.1 -p 5432 -U postgres -d dest
 # 2. check data
 \dt
 # 3. quit

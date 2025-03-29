@@ -56,7 +56,7 @@ docker run --name my-postgres -e POSTGRES_PASSWORD="tFG+}@9,9>58I£k£>|=" -p 54
 **Create NPD database**
 1. Login into postgresSQL
 ```text
-psql -h 127.0.0.1 -p 5432 -U postgres 
+psql -h 127.0.0.1 -p 5433 -U postgres 
 ```
 2. Create database
 ```text
@@ -70,12 +70,12 @@ CREATE DATABASE easybgee_v14_2;
 **Load data**
 
 ```shell
-psql -h 127.0.0.1 -p 5432 -U postgres -d easybgee_v14_2 -f postgresql_ontop_tutorial.sql
+psql -h 127.0.0.1 -p 5433 -U postgres -d easybgee_v14_2 -f postgresql_ontop_tutorial.sql
 ```
 **check**
 ```shell
 # 1. get into 
-psql -h 127.0.0.1 -p 5432 -U postgres -d easybgee_v14_2
+psql -h 127.0.0.1 -p 5433 -U postgres -d easybgee_v14_2
 # 2. check data
 \dt
 # 3. quit
